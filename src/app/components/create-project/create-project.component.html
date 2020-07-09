@@ -1,1 +1,56 @@
-<p>create-project works!</p>
+<body>
+    <div class="container marketing">
+        <h2>{{title}}</h2>
+        <div class="alert alert-success" role="alert" *ngIf="status == 'true'">
+            Project created succesfuly!
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="status == 'false'">
+            Project couldn't be created!
+        </div>
+        <form #projectForm='ngForm' (ngSubmit)='onSubmit(projectForm)'>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">Name</label>
+                    <input required type="text" class="form-control" name="name" ngModel #name='ngModel' [(ngModel)]='project.name' />
+                    <span *ngIf="name.invalid && name.touched" class="valMsg">Name is required</span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="description">Description</label>
+                    <textarea required class="form-control" name="description" ngModel #description='ngModel' [(ngModel)]='project.description'></textarea>
+                    <span *ngIf="description.invalid && description.touched" class="valMsg">Description is required</span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="category">Category</label>
+                    <input required type="text" class="form-control" name="category" ngModel #category='ngModel' [(ngModel)]='project.category' />
+                    <span *ngIf="category.invalid && category.touched" class="valMsg">Category is required</span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="year">Year</label>
+                    <input required type="number" class="form-control" name="year" ngModel #year='ngModel' [(ngModel)]='project.year' />
+                    <span *ngIf="year.invalid && year.touched" class="valMsg">Year is required</span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="langs">Languages</label>
+                    <input required type="text" class="form-control" name="langs" ngModel #langs='ngModel' [(ngModel)]='project.langs' />
+                    <span *ngIf="langs.invalid && langs.touched" class="valMsg">Languages are required</span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Image</label>
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                          <input required type="file" name="image" ngModel class="custom-file-input" />
+                          <label class="custom-file-label" for="image" >Choose file</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row justify-content-md-center">
+                <input type="submit" class="btn btn-primary col-md-6" value="Create" [disabled]="!projectForm.form.valid">
+            </div>
+        </form>
+    </div>
+</body>
