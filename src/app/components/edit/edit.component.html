@@ -7,7 +7,7 @@
         <div class="alert alert-danger" role="alert" *ngIf="status == 'false'">
             Project couldn't be created!
         </div>
-        <form #projectForm='ngForm' (ngSubmit)='onSubmit(projectForm)'>
+        <form #projectForm='ngForm' (ngSubmit)='onSubmit(projectForm)' *ngIf="project">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="name">Name</label>

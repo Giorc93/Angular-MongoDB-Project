@@ -1,0 +1,17 @@
+<body>
+    <div class="container marketing">
+        <div class="card mb-3" *ngIf="project">
+            <img src="{{url+'getImg/'+project.image}}" class="card-img-top" alt="..." *ngIf="project.image">
+            <div class="card-body">
+                <h5 class="card-title">{{project.name}}</h5>
+                <p class="card-text">{{project.description}}</p>
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <a [routerLink]="['/edit', project._id]" class="btn btn-warning col-sm-4">Edit</a>
+                        <a (click)="deleteProject(project._id)" class="btn btn-danger col-sm-4">Remove</a>
+                    </div>
+               </div>
+            </div>
+          </div>
+    </div>
+</body>

@@ -11,6 +11,9 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ErrorComponent } from './components/error/error.component';
 import { IndexComponent } from './components/index/index.component';
+import { TruncatePipe } from './custom-pipes/truncate.pipe';
+import { DetailComponent } from './components/detail/detail.component';
+import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { IndexComponent } from './components/index/index.component';
     ProjectsComponent,
     ContactComponent,
     ErrorComponent,
-    IndexComponent
+    IndexComponent,
+    TruncatePipe,
+    DetailComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
